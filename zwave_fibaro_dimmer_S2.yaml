@@ -3,6 +3,7 @@ blueprint:
   description: |
     Use this blueprint to create automations based on button presses for the Fibaro Dimmer 2 
   domain: automation
+  source_url: https://github.com/rafuz/ha-blueprints/blob/main/zwave_fibaro_dimmer_S2.yaml
   input:
     fibaro_entity:
       name: Fibaro Dimmer
