@@ -23,20 +23,23 @@ blueprint:
     s2_button_twice:
       name: S2 Button Twice
       description: Pick an action for when the s2 button is pressed twice.
+      default: []
       selector:
-        action: 
+        action: {}
 
     s2_button_trice:
       name: S2 Button Three Times
       description: Pick an action for when the s2 button is pressed three times.
+      default: []
       selector:
-        action: 
+        action: {}
 
     s2_button_hold:
       name: S2 Button Hold
       description: Pick an action for when the s2 button is hold.
+      default: []
       selector:
-        action: 
+        action: {}
 
 mode: single
 
