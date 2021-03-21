@@ -1,7 +1,7 @@
 blueprint:
-  name: Fibaro Dimmer 2 S2 
+  name: ZWave - Fibaro Dimmer 2 S2 
   description: |
-    Use this blueprint to create automations based on button presses for the Fibaro Dimmer 2 
+    Use this blueprint to create automations based on button presses for the Fibaro Dimmer 2 (uses old ZWave integration)
   domain: automation
   source_url: https://github.com/rafuz/ha-blueprints/blob/main/zwave_fibaro_dimmer_S2.yaml
   input:
