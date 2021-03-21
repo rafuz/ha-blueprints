@@ -9,10 +9,10 @@ blueprint:
       name: Fibaro Dimmer
       description: The Fibaro Dimmer that will trigger the scenes
       selector:
-        entity:
+        device:
           integration: zwave
-          manufacturer: "FIBARO System"
-          model: "FGD212 Dimmer 2"
+          manufacturer: FIBARO System
+          model: FGD212 Dimmer 2
 
     s2_button_once:
       name: S2 Button Once
