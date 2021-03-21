@@ -1,5 +1,5 @@
 blueprint:
-  name: deCONZ - Vimar ZigBee Green 3905
+  name: deCONZ - Philips Hue Tap
   description: >
     Philips Hue Tap 
   domain: automation
