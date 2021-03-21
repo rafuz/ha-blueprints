@@ -1,0 +1,65 @@
+blueprint:
+  name: Fibaro Dimmer 2 S2 
+  description: |
+    Use this blueprint to create automations based on button presses for the Fibaro Dimmer 2 
+  domain: automation
+  input:
+    fibaro_entity:
+      name: Fibaro Dimmer
+      description: The Fibaro Dimmer that will trigger the scenes
+      selector:
+        entity:
+          integration: zwave
+
+    s2_button_once:
+      name: S2 Button Once
+      description: Pick an action for when the s2 button is pressed once.
+      selector:
+        action: 
+
+    s2_button_twice:
+      name: S2 Button Twice
+      description: Pick an action for when the s2 button is pressed twice.
+      selector:
+        action: 
+
+    s2_button_trice:
+      name: S2 Button Three Times
+      description: Pick an action for when the s2 button is pressed three times.
+      selector:
+        action: 
+
+    s2_button_hold:
+      name: S2 Button Hold
+      description: Pick an action for when the s2 button is hold.
+      selector:
+        action: 
+
+mode: single
+
+trigger:
+  - platform: event
+    event_type: zwave.scene_activated
+    event_data:
+      entity_id: !input fibaro_entity
+action:
+  - variables:
+      scene_id: "{{ trigger.event.data.scene_id }}"
+  
+  - choose:
+    - conditions:
+        - "{{ scene_id == 26 }}"
+      sequence: !input s2_button_once
+      
+  - choose:
+    - conditions:
+        - "{{ scene_id == 24 }}"
+      sequence: !input s2_button_twice
+
+    - conditions:
+        - "{{ scene_id == 25 }}"
+      sequence: !input s2_button_trice
+
+    - conditions:
+        - "{{ scene_id == 22 }}"
+      sequence: !input s2_button_hold
