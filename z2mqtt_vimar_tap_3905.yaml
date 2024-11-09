@@ -10,7 +10,7 @@ blueprint:
       description: Vimar 3905
       selector:
         device:
-          integration: MQTT
+          integration: mqtt
           manufacturer: EnOcean
           model: "Pushbutton transmitter module (PTM 215ZE)"
     button_one_single_press:
