@@ -1,0 +1,66 @@
+blueprint:
+  name: deCONZ - Vimar ZigBee Green 3905
+  description: >
+    Vimar Zigbee Green (4 buttons), based on Vimar ZGP 3905 
+  domain: automation
+  source_url: https://github.com/rafuz/ha-blueprints/blob/main/deconz_vimar_tap_3905.yaml
+  input:
+    remote:
+      name: Remote
+      description: Vimar 3905
+      selector:
+        device:
+          integration: deconz
+          manufacturer: Philips
+          model: ZGPSWITCH
+    button_one_single_press:
+      name: 1 button - Single press
+      description: Action to run on a single press of the button 1
+      default: []
+      selector:
+        action: {}
+    button_two_single_press:
+      name: 2 button - Single press
+      description: Action to run on a single press of the button 2
+      default: []
+      selector:
+        action: {}
+    button_three_single_press:
+      name: 3 button - Single press
+      description: Action to run on a single press of the button 3
+      default: []
+      selector:
+        action: {}
+    button_four_single_press:
+      name: 4 button - Single press
+      description: Action to run on a single press of the button 4
+      default: []
+      selector:
+        action: {}
+
+        
+mode: restart
+max_exceeded: silent
+
+trigger:
+- platform: event
+  event_type: deconz_event
+  event_data:
+    device_id: !input 'remote'
+
+action:
+- variables:
+    event: '{{ trigger.event.data.event }}'
+- choose:
+  - conditions:
+    - '{{ event == 34 }}'
+    sequence: !input 'button_one_single_press'
+  - conditions:
+    - '{{ event == 24 }}'
+    sequence: !input 'button_two_single_press'
+  - conditions:
+    - '{{ event == 20 }}'
+    sequence: !input 'button_three_single_press'
+  - conditions:
+    - '{{ event == 18 }}'
+    sequence: !input 'button_four_single_press'
