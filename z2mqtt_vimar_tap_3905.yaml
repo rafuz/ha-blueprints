@@ -10,7 +10,6 @@ blueprint:
       description: zigbee2mqtt action entity to use
       selector:
         entity:
-          integration: mqtt
           domain:
             - sensor
           multiple: false
